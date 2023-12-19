@@ -1,4 +1,4 @@
-fs = require('fs')
+import { readFileSync } from 'fs';
 
 function get_first_number(x){
   for(let i = 0; i < x.length; i++){
@@ -24,9 +24,9 @@ function get_sum(x){
   return Number(get_first_number(x) + get_last_number(x));
 }
 
-data = fs.readFileSync('input.txt').toString().split('\n');
-sum = 0
-for (line of data){
+let data = readFileSync('input.txt', 'utf-8').split('\n');
+let sum = 0
+for (const line of data){
   sum += get_sum(line);
 }
 console.log(sum);
